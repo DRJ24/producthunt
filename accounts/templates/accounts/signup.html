@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <style media="screen">
+    .error{
+      color: red;
+    }
+  </style>
+  <body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Sign up!</h1>
+    <form class="" action="{% url 'signup' %}" method="post">
+
+
+<!-- This line prevents your website from different attacks -->
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="username" value="">
+      <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" value="">
+      <br>
+      <label for="confpassword">Confirm Password</label>
+      <input type="password" id="confpassword" name="confpassword" value="">
+      <br>
+      <br>
+      <input type="submit" name="" value="Sign Up!" class="btn btn-primary">
+
+    </form>
+
+    <!-- this is an if statement that returns a true if an error exists -->
+    <p class='error'>{% if error %}
+
+      <!-- post the error specified in the  -->
+      {{ error }}
+
+      <!-- this ends the if statement -->
+      {% endif %}
+
+      
+
+    </p>
+
+
+
+    {% endblock %}
+
+  </body>
+</html>

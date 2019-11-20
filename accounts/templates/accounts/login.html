@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    #error{
+      color: red;
+    }
+  </style>
+  <body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <h1>Log in!</h1>
+    <form class="" action="{% url 'login' %}" method="post">
+
+
+<!-- This line prevents your website from different attacks -->
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="username" value="">
+      <br>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="password" value="">
+      <br>
+      <input type="submit" name="" value="Log in!" class="btn btn-primary">
+
+    </form>
+
+<p id="error">
+    {% if error %}
+
+    {{ error }}
+
+    <a href="{% url 'signup' %}" class="btn btn-primary btn-lg" role="button" aria-disabled="true">Sign Up</a>
+
+    {% endif %}
+
+</p>
+
+    {% endblock %}
+
+  </body>
+</html>
