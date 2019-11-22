@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    #error{
+      color: red;
+    }
+  </style>
+  <body>
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <h1>Create a Product</h1>
+    <form class="" action="{% url 'create' %}" method="POST" enctype=”multipart/form-data”>
+
+
+<!-- This line prevents your website from different attacks -->
+      {% csrf_token %}
+      <label for="title">Title of Product</label>
+      <input type="text" id="title" name="title" placeholder="title" value="">
+      <br>
+
+      <!-- <label for="pub_date">Date</label>
+      <input type="date" name="pub_date" id="pub_date" placeholder="pub_date" value="">
+      <br> -->
+
+      <label for="url">URL</label>
+      <input type="text" id="url" name="url" placeholder="url" value="">
+      <br>
+
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" placeholder="image" value="">
+      <br>
+
+      <label for="icon">Icon</label>
+      <input type="file" name="icon" id="icon" placeholder="icon" value="">
+      <br>
+
+
+      <label for="body">Subject</label>
+      <input type="textbox" name="body" id="body" placeholder="Enter your text here" value="">
+      <br>
+
+
+
+
+
+      <input type="submit" name="" value="Submit your product!" class="btn btn-primary">
+
+    </form>
+
+<p id="error">
+    {% if error %}
+
+    {{ error }}
+
+
+    {% endif %}
+
+</p>
+
+    {% endblock %}
+
+  </body>
+</html>
