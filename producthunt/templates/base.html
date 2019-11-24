@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}">
     <title></title>
   </head>
   <body>
@@ -34,7 +36,7 @@
       </form>
 
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'create' %}">Create Product</a>
+        <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span>Create</a>
       </li>
 
 

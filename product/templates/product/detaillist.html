@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    #pagepic{
+      width: 200px
+    }
+  </style>
+  <body>
+    {% for product in products.all %}
+
+    <p>{{ product.title }}</p>
+    <p>{{ product.body }}</p>
+    <p><img src="{{ product.image.url }}" alt="" id="pagepic"></p>
+
+
+
+    {% endfor %}
+  </body>
+</html>
